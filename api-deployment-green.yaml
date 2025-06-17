@@ -6,11 +6,11 @@ spec:
   replicas: 4
   selector:
     matchLabels:
-      app: hacker-api-green
+      app: hacker-api
   template:
     metadata:
       labels:
-        app: hacker-api-green
+        app: hacker-api
         version: green
     spec:
       containers:

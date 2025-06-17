@@ -6,16 +6,16 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: hacker-web-green
+      app: hacker-web
   template:
     metadata:
       labels:
-        app: hacker-web-green
+        app: hacker-web
         version: green
     spec:
       containers:
       - name: api-container
-        image: hackcontainerregistry.azurecr.io/hacker-web:latest
+        image: whatthehackmsft/content-web:v2
         ports:
         - containerPort: 3000
         resources:

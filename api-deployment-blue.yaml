@@ -6,16 +6,16 @@ spec:
   replicas: 4
   selector:
     matchLabels:
-      app: hacker-api-blue
+      app: hacker-api
   template:
     metadata:
       labels:
-        app: hacker-api-blue
+        app: hacker-api
         version: blue
     spec:
       containers:
       - name: api-container
-        image: whatthehackmsft/content-api:v2
+        image: hackcontainerregistry.azurecr.io/hacker-api:latest
         env:
         - name: MONGODB_CONNECTION
           value: mongodb://mongo:27017/contentdb
