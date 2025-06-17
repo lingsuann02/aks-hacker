@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hacker-api-blue
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: hacker-api-blue
+  template:
+    metadata:
+      labels:
+        app: hacker-api-blue
+        version: blue
+    spec:
+      containers:
+      - name: api-container
+        image: whatthehackmsft/content-api:v2
+        env:
+        - name: MONGODB_CONNECTION
+          value: mongodb://mongo:27017/contentdb
+        ports:
+        - containerPort: 3001
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "128Mi"

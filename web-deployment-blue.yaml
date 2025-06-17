@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hacker-web-blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hacker-web-blue
+  template:
+    metadata:
+      labels:
+        app: hacker-web-blue
+        version: blue
+    spec:
+      containers:
+      - name: api-container
+        image: hackcontainerregistry.azurecr.io/hacker-web:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "128Mi"
